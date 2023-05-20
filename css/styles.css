@@ -1,3 +1,48 @@
+#popup{
+    margin-top: 4%;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+}
+
+#popup-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Inconsolata";
+    max-width: 100%;
+}
+
+#popup::backdrop{
+    background-color: rgba(0, 0, 0, 0.795);
+}
+
+#logo{
+    height: auto;
+    width: 15%;
+}
+
+#instruction{
+    font-size: 130%;
+}
+
+#text{
+    resize: none;
+    margin-bottom: 5%;
+    background-color: rgb(219, 215, 198);
+    font-family: "Inconsolata";
+    border: none;
+    border-radius: 5px;
+    width: 45%;
+    height: auto;
+    font-size: 110%;
+}
+
+#text:focus{
+    outline: none;
+    background-color: rgb(165, 162, 148);
+}
+
 .mainBox{
     background: rgb(245, 245, 245);
     width: 90%;
@@ -10,7 +55,7 @@
 .header{    
     display: flex;
     flex-direction: row;
-    font-size: 20px;
+    font-size: 125%;
     font-family: "Inconsolata";
     gap: 15%;
     max-width: 100%;
@@ -71,10 +116,14 @@
     background: rgba(255, 153, 0, 1);
     border: none;
     height: 30px;
-    width: 150px;
+    width: 20%;
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 120%;
     font-family: "Inconsolata";
+}
+
+.button:hover{
+    background: rgb(189, 101, 0);
 }
 
 body{    

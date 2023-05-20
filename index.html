@@ -12,6 +12,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
     </head>
     <body>
+        <dialog id="popup">
+            <div id="popup-box">
+                <h1>Bienvenido a BuscaPares!</h1>
+                <img id= "logo" src="/img/Unimet_logo.png"/>
+                <p id="instruction">Introduzca su nombre:</p>
+                <input type="text" placeholder="Nombre" id="text"></input>
+                <button class = "button" id="close-popup">Continuar</button>
+            </div>
+        </dialog>
         <div class="mainBox">
             <header class="header">
                 <b id="player-name">Nombre del Jugador</b>                
@@ -74,5 +83,6 @@
                 <button class = "button" id="score-button">Puntuaciones</button>
             </div>
         </div>
+        <script src="/js/index.js"></script>
     </body>
 </html>
