@@ -14,9 +14,9 @@
     <body>
         <div class="mainBox">
             <header class="header">
-                <p>Nombre del Jugador</p>                
-                <p>Tiempo Restante:</p>
-                <p>Puntuación:</p>
+                <b id="player-name">Nombre del Jugador</b>                
+                <b id="remaining-time">Tiempo Restante:</b>
+                <b id="score">Puntuación:</b>
             </header>            
             <div class="tablero">
                 <div class="grid-element">
@@ -67,6 +67,11 @@
                 <div class="grid-element">
                     <img src="/img/Card.png" alt="Carta" class="carta">
                 </div>
+            </div>
+            <div class = "button-area">
+                <button class = "button" id="start-button">Empezar</button>
+                <button class = "button" id="reset-button">Reiniciar</button>
+                <button class = "button" id="score-button">Puntuaciones</button>
             </div>
         </div>
     </body>
