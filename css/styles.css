@@ -114,7 +114,7 @@
     transition: transform 0.5s;
 }
 
-.volteada{
+.flip{
     transform: translateX(-100%) rotateY(-180deg);
   }
 
@@ -131,9 +131,53 @@
 }
 
 .cara-reverso{
-    background: slateblue;
+    background-image: url("/img/Card.png");
     transform: rotateY(180deg);
+    background-size: 100%;
 }
+
+.cara-reverso1{
+    background-image: url("/img/i1.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+.cara-reverso2{
+    background-image: url("/img/i2.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+.cara-reverso3{
+    background-image: url("/img/i3.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+.cara-reverso4{
+    background-image: url("/img/i4.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+.cara-reverso5{
+    background-image: url("/img/i5.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+.cara-reverso6{
+    background-image: url("/img/i6.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+.cara-reverso7{
+    background-image: url("/img/i7.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+.cara-reverso8{
+    background-image: url("/img/i8.png");
+    transform: rotateY(180deg);
+    background-size: 100%;
+}
+
+
 
 
 .button-area{
