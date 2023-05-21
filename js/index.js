@@ -106,6 +106,7 @@ const cartas = document.querySelectorAll('.card');
 
 
 const genenerateBoard = ()=>{
+    found = 0;
     scoreIndicator.innerHTML = `Puntuación:`
     selections=[];
     [...cartas].forEach((carta)=>{
@@ -143,9 +144,11 @@ btnStart.addEventListener("click", ()=>{
 })
 
 btnReset.addEventListener("click",()=>{
-    clearInterval(timer);
-    genenerateBoard();
-    Timer();
+    if(blockedBoard == false){        
+        clearInterval(timer);
+        genenerateBoard();
+        Timer();
+    }
 })
 
 const Timer=()=>{
@@ -223,5 +226,5 @@ const deselect = (selections) =>{
     
     blockedBoard = false;
     
-    
+
 }
