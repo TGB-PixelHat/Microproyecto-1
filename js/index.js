@@ -3,12 +3,14 @@ const popup = document.querySelector("#popup");
 let playerName = document.getElementById("player-name");
 let btnStart = document.getElementById("start-button");
 let btnReset = document.getElementById("reset-button");
+let btnScore = document.getElementById("score-button");
 let blockedBoard = true;
 let maxScore = 1000;
 let sec = 181;
+let found = 0;
 let timer;
 let remainingTime = document.getElementById("remaining-time");
-
+let scoreIndicator = document.getElementById("score");
 
 
 const showPopup = () =>{
@@ -39,14 +41,18 @@ const cartas = document.querySelectorAll('.card');
 
 [...cartas].forEach((carta)=>{
   carta.addEventListener( 'click', function() {
-    if(blockedBoard == false || !carta.classList.contains("absolute-flip")){        
-        carta.classList.toggle('flip');
+    if(blockedBoard == false){       
+        if(carta.classList.contains('absolute-flip')){
+        }else{            
+            carta.classList.toggle('flip');
+        }
     }
   });
 });
 
 
 const genenerateBoard = ()=>{
+    scoreIndicator.innerHTML = `Puntuación:`
     selections=[];
     [...cartas].forEach((carta)=>{
         if (carta.classList.contains("flip")){
@@ -97,49 +103,67 @@ const Timer=()=>{
         if(sec <= 0){
             clearInterval(timer);
             blockedBoard = true;
+            alert("Tiempo Acabado! No recibiste ningún punto!");
+        }
+        if(found == 8){
+            clearInterval(timer);
+            blockedBoard = true;
+            let finalscore = Math.round(maxScore * (sec/181));
+            alert(`Juego Terminado! Puntuación Obtenida: ${finalscore}`)
+            scoreIndicator.innerHTML = `Puntuación: ${finalscore}`
         }
     }, 1000);
 }
 
+
 let selections = [];
 
 const selectCard = (i)=>{
-    console.log("hola1");
-    let card = document.getElementById(`tarjeta-${i}`);
-    if(!card.classList.contains("flip") || !card.classList.contains("absolute-flip")){
-        card.classList.toggle("flip");
-        selections.push(i);
-        console.log("hola2");
-    }
-    if(selections.length == 2){
-        
-        console.log("hola3");
-        deselect(selections);
-        
-        selections=[]
-        
+    if(blockedBoard == false){
+        let card = document.getElementById(`tarjeta-${i}`);
+        if(!card.classList.contains("flip") || !card.classList.contains("absolute-flip")){
+            card.classList.toggle("flip");
+            selections.push(i);
+        }
+        if(selections.length == 2){
+            
+            deselect(selections);
+            
+            selections=[]
+            
+        }
     }
 }
 
 const deselect = (selections) =>{
+    blockedBoard = true;
     setTimeout(()=>{
         let card1 = document.getElementById(`tarjeta-${selections[0]}`);        
         let card2 = document.getElementById(`tarjeta-${selections[1]}`);
         
         let tarjeta1 = document.getElementById(`card-${selections[0]}`);
         let tarjeta2 = document.getElementById(`card-${selections[1]}`);
-        console.log("hola4");
-        console.log(card1.classList.toString());
 
-        if(card1.classList.toString() == card2.classList.toString()){
+        let str1 = card1.classList.toString().replace(" flip", "");
+        let str2 = card2.classList.toString().replace(" flip", "");
+        console.log(str1);
+        console.log(str2);
+
+        if(str1 == str2){
 
             tarjeta1.classList.add("absolute-flip");
             tarjeta2.classList.add("absolute-flip");
-        }else{
+            found += 1;
             
-            console.log("hola5");
+        }else{
             tarjeta1.classList.toggle("flip");
             tarjeta2.classList.toggle("flip");
-        }
+        }        
     }, 1000);
+    setTimeout(()=>{
+
+    },1000);
+    
+    blockedBoard = false;
+    
 }
